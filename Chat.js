@@ -164,9 +164,9 @@ class Chat extends React.Component {
         console.log("componentWillReceiveProps",nextProps)
         if (!nextProps.fetchChatRoomMessagesQuery.loading && !nextProps.fetchChatRoomMessagesQuery.error) {
           this._onUpdateChatRoomMessages(nextProps.fetchChatRoomMessagesQuery.allMessages)
-          if ( nextProps.fetchChatRoomMessagesQuery.allMessages.length == 0 ) {
-            this._createMessage("start");
-          }
+          
+          //auto send message
+          this._createMessage("message " + this.state.messages.length );
         }
       }
 
